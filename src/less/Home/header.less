@@ -1,0 +1,56 @@
+@import '../main.less';
+#root,.header{@extend body;}
+.header{
+    position:fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display:flex;
+    .padding(0,15,0,15);
+     align-items: center;
+     background: #fff;
+    .fs(14);
+    .h(46);
+    border-bottom: 1px solid #ccc;
+    .address{
+        display: flex;
+        align-items: center;
+        .h(46);
+        i{
+            .w(16);
+           .fs(16);
+        }
+        span{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+    .search{
+        display: flex;
+        align-items: center;
+        .margin-left(15);
+        .w(242);
+        .h(30);
+        color: #999;
+        background: #f6f8fa;
+        i{
+            .w(13);
+            .margin-left(10);
+        }
+        input{
+            background: #f6f8fa;
+            .fs(12);
+            .w(200);
+            .margin-left(8);
+            overflow: auto;
+        }
+    }
+    .lensten{
+        .w(16);
+        .fs(16);
+        .margin-left(10);
+    }
+}
+
