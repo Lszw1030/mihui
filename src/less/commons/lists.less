@@ -1,0 +1,48 @@
+@import '../main.less';
+#root,.lists{@extend body;}
+.lists{
+    .padding-bottom(49);
+    .margin-top(8);
+    .list{
+        display: flex;
+        flex-wrap: wrap;
+        background: #fff;
+        border-top: 1px solid #ddd;
+        li{
+            width: 50%;
+            border-right: 1px solid #ddd ;
+            border-bottom: 1px solid #ddd ;
+            .h(233);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            img{
+                .h(155);
+                .w(155);
+            }
+            h2{
+                .w(155);
+                .fs(14);
+                overflow: hidden;
+                .h(26);
+                .lh(26);
+            }
+            p{
+                .w(155);
+                .fs(12);
+                span:nth-child(1){
+                   color: #fe7c85;
+                   .margin-right(20);
+               }
+               span:last-child{
+                   color: #999;
+                   span{
+                       .margin-left(5);
+                       text-decoration: line-through;
+                   }
+               }
+            }
+        }
+    }
+}
