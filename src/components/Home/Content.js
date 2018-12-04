@@ -1,9 +1,9 @@
 import React,{Component} from 'react';
 import axios from 'axios';
 
-import {withRouter} from 'react-router-dom';
+import {Switch,withRouter} from 'react-router-dom';
 
-//http://www.shenduzhekou.com/index.php?r=index/ajaxnew&page=1
+
 class Content extends Component{
 	constructor(){
 		super();
@@ -12,10 +12,11 @@ class Content extends Component{
 			list:[],
 			
 		};
-	}//r=class%2Fajaxsub&page=1&cid=8115&px=sell&cac_id=
+		
+	}
 	componentWillMount(){
 		let data =this.props.data;
-		console.log(data)
+		//console.log(data)
 		axios.get('/apis/home/api/getLikeList', {params:data})
 		.then((res) => {
 			//console.log(res.data.likeProductInfo)
@@ -30,6 +31,13 @@ class Content extends Component{
 		})
 			
 	}
+	goInfomation(val){
+		let {history} = this.props;
+		window.localStorage.setItem("name",val.name);
+		window.localStorage.setItem("productId",val.id);
+		history.push('/information');
+
+	}
 	render(){
 		
 		return <div>
@@ -38,9 +46,10 @@ class Content extends Component{
 					<div className="ovaotu">
 						<ul className="contlist">
 						{this.state.list.map(val=>(
-							
 							<li
-							key={val.id}>
+							key={val.id}
+							onClick={this.goInfomation.bind(this,val)}
+							>
 							
 								<span className="minti">{val.sellerInfo.name}</span>
 								<img src={val.pic}/>
@@ -49,8 +58,10 @@ class Content extends Component{
 									<span>{(val.price*0.8).toFixed(2)}</span>
 									<span>{val.price}</span>
 								</p>
+						
 							</li>
 							))}
+							
 						</ul>
 					</div>
 				</div>

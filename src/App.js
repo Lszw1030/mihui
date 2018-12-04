@@ -13,6 +13,7 @@ import {Classify} from './components/Classify';
 import {Cart} from './components/Cart';
 import {OrderFrom} from './components/OrderFrom';
 import {My} from './components/My';
+import {Information} from "./components/Information";
 
 import {Footer} from "./components/Commons/Footer";
 
@@ -33,6 +34,7 @@ class App extends Component {
             <Route path="/cart" component={Cart} />
             <Route path="/orderFrom" component={OrderFrom} />
             <Route path="/my" component={My} />
+            <Route path="/information" component={Information} />
             </Switch>
         	</div>
         	<div>

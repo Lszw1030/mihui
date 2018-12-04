@@ -1,0 +1,24 @@
+@import '../main.less';
+#root,
+.search {
+    @extend body;
+}
+.search {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    right: 0;
+    .h(45);
+    .am-search {
+        .h(45);
+        background: #fff;
+        border-bottom: 1px solid #ddd;
+        .am-search-input {
+            .h(32);
+            .border-radius(32);
+            background: #f7f7f7;
+            .am-search-value {}
+        }
+    }
+}

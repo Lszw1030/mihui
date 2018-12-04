@@ -1,0 +1,27 @@
+@import '../main.less';
+#root,.classifyNav{@extend body;}
+.classifyNav{
+    position: fixed;
+    .top(45);
+    left: 0;
+    right: 0;
+    .h(45);
+    .w(375);
+    overflow: auto;
+    .typeList{
+        .h(45);
+        .w(600);
+        overflow: auto;
+        background: #fff;
+        li{
+            float: left;
+            .w(62);
+            .lh(45);
+            .fs(14);
+            text-align: center;
+            border-bottom: 1px #ccc solid;
+        }
+        
+    }
+    
+}

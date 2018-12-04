@@ -2,13 +2,15 @@ import React,{Component} from 'react';
 import axios from 'axios';
 import {Route,NavLink,Redirect,Switch,withRouter} from 'react-router-dom';
 
-import {Header} from "./Home/Header"
+
 import {Banner} from "./Home/Banner"
 import {HomeNav} from "./Home/HomeNav"
 import {HomeMinType} from "./Home/HomeMinType"
 import {Content} from "./Home/Content"
 
+
 import {Lists} from "./Commons/Lists"
+import {Search} from './Commons/Search'
 
 import {List} from 'antd-mobile';
 const Item = List.Item;
@@ -33,13 +35,18 @@ class Home extends Component{
 			data4:{
 				pageNub:4,
 				pageSize:20
-			}
+			},
+			listdata:{
+				pageNub:5,
+				pageSize:20
+			},
+			hurl:"/apis/home/api/getLikeList"
 		}
 	}
 	render(){
 		return <div>
 				<div className="content">
-						<Header></Header>
+						<Search></Search>
 						<Banner></Banner>
 						<HomeNav></HomeNav>
 						<div className="zhengping">
@@ -51,7 +58,7 @@ class Home extends Component{
 						<Content data={this.state.data2}></Content>
 						<Content data={this.state.data3}></Content>
 						<Content data={this.state.data4}></Content>
-						<Lists></Lists>
+						<Lists data={this.state.listdata} url={this.state.hurl}></Lists>
 				</div>
 				
 		</div>

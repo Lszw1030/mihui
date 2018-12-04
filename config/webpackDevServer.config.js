@@ -26,6 +26,11 @@ let myproxy= {
     target:'http://m.ymatou.com',//目标地址
     changeOrigin:true,  //应许跨域
     pathRewrite:{'^/apis':'/'} //字符匹配
+  },
+  '/apif':{  //转发小暗号
+    target:'http://w.lefeng.com',//目标地址
+    changeOrigin:true,  //应许跨域
+    pathRewrite:{'^/apif':'/'} //字符匹配
   }
 }
 
