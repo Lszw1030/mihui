@@ -1,0 +1,61 @@
+@import '../main.less';
+#root,
+.userLogin {
+    @extend body;
+}
+.userLogin {
+    background: #fff;
+    width: 100%;
+    color: #555;
+    .h(667);
+    .userLogin-header{
+        .h(45);
+        .lh(45);
+        .margin-right(10);
+        text-align: right;
+        color: #555;
+    }
+    .lcontent{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .loginlogo{
+            display: flex;
+            align-items: center;
+            .h(108);
+            img{
+                .h(70);
+                .w(70);
+            }
+            
+        }
+        .tellogin{
+            color: #ccc;
+            .margin-top(20);
+            .inp{
+                display: block;
+                color: #ccc;
+                .fs(14);
+                 .w(256);
+                 .h(50);
+                 .lh(50);
+                  border-bottom: 1px solid #ddd;
+                
+            }
+            p{
+                text-align: right;
+                .fs(14);
+                .lh(40);
+            }
+            .submit{
+                .margin-top(30);
+                color: #fff;
+                background: #ff5a60;
+                .border-radius(10);
+                .h(40);
+                .lh(40);
+            }
+                
+        }
+    }
+}

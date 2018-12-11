@@ -1,0 +1,41 @@
+ @import './loginNav.less';
+ @import './userReg.less';
+ @import './userLogin.less';
+ @import './thirdLogin.less';
+  @import './loginTop.less';
+ html, body {
+   width: 100%;
+   
+ }
+.slide-in-appear {
+  transform: translate3D(100%, 0, 0);
+  transition: all 5000ms linear;
+
+  &.slide-in-appear-active {
+    transform: translate3D(0, 0, 0);
+  }
+}
+
+.slide-in-enter {
+  transform: translate3D(100%, 0, 0);
+  transition: all 5000ms linear;
+
+  &.slide-in-enter-active {
+    transform: translate3D(0, 0, 0);
+  }
+}
+
+// 向左滑出
+.slide-in-leave {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  transform: translate3D(0, 0, 0);
+  transition: all 5000ms linear;
+
+  &.slide-in-leave-active {
+    opacity: 0.01;
+    transform: translate3D(-100%, 0, 0);
+  }
+}

@@ -1,0 +1,123 @@
+@import '../main.less';
+#root,.addToBag{@extend body;}
+.addToBag{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: none;
+    .shade{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #222;
+        opacity: .3;
+    }
+    .addgood{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        .h(416);
+        background: #fff;
+        .goingo{
+            .h(100);
+            width: 100%;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            .padding(0,8,0,8);
+            .fs(14);
+            img{
+                position: absolute;
+                .top(-10);
+                .w(100);
+                .h(100);
+                box-shadow: 0 0 0 1px #ddd;
+            }
+            .title{
+                position: absolute;
+                .left(118);
+                .w(240);
+                .fs(14);
+                p{
+                    .lh(18);
+                    color: #999;
+                    
+                }
+                p:first-child{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    .lh(24);
+                    .price{
+                        color: #ff5b61;
+                    }
+                }
+            }
+        }
+        .goodtype{
+            .h(90);
+            .padding(10,8,0,8);
+            overflow: auto;
+            border-bottom: 1px solid #ddd;
+            .typetitle{
+                p{
+                    .fs(16);
+                    color: #555;
+                }
+                .types{
+                    
+                    .am-button{
+                        .margin-top(10);
+                        .margin-left(5);
+                        background: #ff5b61;
+                        
+                    }
+                    .am-button::before{
+                        border:none;
+                    }
+                }
+            }
+        }
+        .adNum{
+            .h(45);
+            border-bottom: 1px solid #ddd;
+            .padding(0,8,0,8);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .adNum-left{
+                .fs(14);
+                span:nth-child(2){
+                    color: #ff5b61;
+                }
+            }
+            .adNum-right{
+                .fs(16);
+                input{
+                    .w(30);
+                    .h(30);
+                    border: 1px solid #ddd;
+                    background: #fff;
+                }
+                input:nth-child(2){
+                    text-align: center;
+                }
+                input:last-child{
+                    color: #ff5b61;
+                }
+                
+            }
+        }
+        #submit{
+            position: absolute;
+            .bottom(15);
+            .left(20);
+            .right(20);
+        }
+    }
+}

@@ -1,0 +1,36 @@
+@import '../main.less';
+#root,
+.thirdLogin {
+    @extend body;
+}
+.thirdLogin {
+    .padding-top(10);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .cooperation{
+        display: flex;
+        justify-content: center;
+        .w(256);
+        position: relative;
+        .h(1);
+        border: 1px solid #ddd;
+        
+        span{
+            .fs(12);
+            position: absolute;
+            z-index: 1000;
+            .padding(0,10,0,10);
+            .top(-6);
+            background: #fff;
+        }
+    }
+    .per-icons{
+        .margin-top(50);
+        .w(256);
+        .h(35);
+        .fs(30);
+        display: flex;
+        justify-content: space-between;
+    }
+}

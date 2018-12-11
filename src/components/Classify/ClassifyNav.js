@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 
 import {withRouter} from 'react-router-dom';
-import { TabBar } from 'antd-mobile';
+
 
 
 
@@ -17,6 +17,7 @@ class ClassifyNav extends Component{
 					pageNub:1,
 					pageSize:20
 				},
+				id:'quanbu'
         	},
         	{
         		title:"护肤",
@@ -24,6 +25,7 @@ class ClassifyNav extends Component{
 					pageNub:2,
 					pageSize:20
 				},
+				id:'hufu'
         	},
         	{
         		title:"彩妆",
@@ -31,6 +33,7 @@ class ClassifyNav extends Component{
 					pageNub:3,
 					pageSize:20
 				},
+				id:'caizhuang'
         	},
         	{
         		title:"个护",
@@ -38,6 +41,7 @@ class ClassifyNav extends Component{
 					pageNub:4,
 					pageSize:20
 				},
+				id:'gehu'
         	},
         	{
         		title:"保健",
@@ -45,6 +49,7 @@ class ClassifyNav extends Component{
 					pageNub:5,
 					pageSize:20
 				},
+				id:'baojian'
         	},
         	{
         		title:"食品",
@@ -52,6 +57,7 @@ class ClassifyNav extends Component{
 					pageNub:6,
 					pageSize:20
 				},
+				id:'baojian'
         	}
         ],
         n:0
@@ -59,25 +65,29 @@ class ClassifyNav extends Component{
  }
 	
 	componentWillMount(){
-      //找出对应索引值
+      //获取hash值
+          let hash = window.location.hash.slice(1);//#list
+      
+        //找出对应索引值
         let n = 0
         this.state.typeNav.some((item,idx)=>{
-            n = idx;
-            
+            //n = idx;
+            return item.id === hash
         });
 
-       this.setState({
+        this.setState({
             n
         });
 
     }
 	toNeedType(index,item){
-		//console.log(item.data)
-		//console.log(this)
+		
+		let {history} = this.props;
 		window.localStorage.setItem("data",JSON.stringify(item.data))
 		this.setState({
 			n:index
 		})
+		window.location.reload()
 	}
 	render(){
 		return <div>
@@ -90,8 +100,6 @@ class ClassifyNav extends Component{
 							onClick={this.toNeedType.bind(this,index,goods)}
 						>{goods.title}</li>
 					))}
-						
-					
 					</ul>
             </div>
 		</div>

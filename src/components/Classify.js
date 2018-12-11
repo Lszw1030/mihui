@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import axios from 'axios';
 
 import {withRouter} from 'react-router-dom';
 
@@ -8,29 +7,27 @@ import {ClassifyNav} from './Classify/ClassifyNav'
 
 import {Lists} from './Commons/Lists';
 
-import {List} from 'antd-mobile';
-const Item = List.Item;
-const Brief = Item.Brief;
-
 
 
 class Classify extends Component{
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
 		this.state = {
 			listdata:{
 				pageNub:5,
 				pageSize:20
 			},
-			hurl:"/apis/home/api/getLikeList"
-		};
+			hurl:"/apis/home/api/getLikeList",
+			
+		}
 	}
 	componentWillMount(){
 		let data=JSON.parse(localStorage.getItem("data"))
-		console.log(data)
+	
 		this.setState({
 	       		 listdata:data,
-	      	});
+	    });
+	    
 	}
 	render(){
 		return <div>
@@ -39,6 +36,7 @@ class Classify extends Component{
 				<div className="" style={{marginTop:"90px"}}></div>
 				<Lists 
 				data={this.state.listdata} url={this.state.hurl}></Lists>
+				
 		</div>
 	}
 }

@@ -1,0 +1,36 @@
+@import '../main.less';
+#root,.goodFooter{@extend body;}
+.goodFooter{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    .h(49);
+    border-top: 1px solid #ddd;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    z-index: 500;
+    .goodFooter-left{
+        flex: 1;
+        float: left;
+        i{
+            .fs(20);
+            .margin-left(15);
+            color: #666;
+        }
+    }
+    .goodFooter-right{
+        float: right;
+        flex: 1;
+        .am-button {
+        }
+        .am-button:first-child::before{
+            border: 1px solid #ff9195;
+        }
+         .am-button:last-child::before{
+            border: 1px solid #ff9195;
+        }
+    }
+    
+}

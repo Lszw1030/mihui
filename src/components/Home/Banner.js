@@ -6,20 +6,25 @@ import { Carousel,WingBlank } from 'antd-mobile';
 import AJAX from '../Commons/ajax.js';
 import Swiper from 'swiper';
 class Banner extends Component{
-	constructor(props){
-		super(props);
+	constructor(){
+		super();
 		this.state = {
 			banner:	['1', '2', '3'],
 	    	imgHeight: 176,
 		};
 	}
 	componentWillMount(){
-		axios.get('/apiy/api/wxapp', {})
+		let data =this.props.data;
+		let url=this.props.url;
+		let imgs=JSON.parse(localStorage.getItem("imgs"));
+//		console.log(imgs)
+//		console.log(url,data);
+		axios.get(url, {parmas:data})
 			.then((res) => {
-				let data=res.data.result.banner
-				//console.log(data)
+				let data=res.data.result.banner||imgs;
+				//console.log(res.data.result)
 				this.setState({
-	       		 banner:data ,
+	       		 banner:data,
 	      		});
 			})
 			.catch((err) => {

@@ -1,0 +1,46 @@
+@import '../main.less';
+#root,.goodsInfo{@extend body;}
+.goodsInfo{
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+
+    .padding(45,20,0,20);
+    img{
+        width: 100%;
+        .h(340);
+        
+    }
+    .title{
+        
+        
+        h1{
+            .fs(14);
+            .lh(20);
+        }
+        div{
+            .fs(0);
+            overflow: hidden;
+            .goodsprice{
+                display: inline-block;
+                .fs(0);
+                span{
+                    .fs(12);
+                    color: #999;
+                    .margin-right(10);
+                }
+                span:first-child{
+                    color: #fe656b;
+                    .fs(16);
+                }
+            }
+            .getmoney{
+                float: right;
+                .fs(14);
+                background: #ff969a;
+                display: inline-block;
+                .padding(3,5,3,5);
+                color: #fff;
+            }
+        }
+    }
+}

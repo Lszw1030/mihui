@@ -1,8 +1,6 @@
 import React,{Component} from 'react';
 import axios from 'axios';
-import {
-	TabBar
-} from 'antd-mobile';
+
 
 import {withRouter} from 'react-router-dom';
 
@@ -25,19 +23,22 @@ class Lists extends Component{
 			//console.log(data.pageNub)
 			this.setState({
 				list:res.data.likeProductInfo
-      		});
-
+      	});
 		})
 		.catch((err) => {
 			console.log(err)
 		})
 //      
     }
-	goInfomation(val){
+	goInfomation(goods){
 		let {history} = this.props;
-		window.localStorage.setItem("name",val.name);
-		window.localStorage.setItem("productId",val.id);
-		history.push('/information');
+		//console.log(val)
+		window.localStorage.setItem("name",goods.name);
+		window.localStorage.setItem("productId",goods.id);
+		history.push({
+			pathname:'/information/'+goods.id,
+			state:goods
+		});
 
 	}
 	

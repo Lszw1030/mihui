@@ -1,0 +1,62 @@
+@import '../main.less';
+#root,
+.userReg {
+    @extend body;
+}
+.userReg {
+    background: #fff;
+    width: 100%;
+    color: #555;
+    .h(667);
+    .lcontent{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+     
+        .tellogin{
+            color: #ccc;
+            .margin-top(20);
+            .inp{
+                display: block;
+                color: #ccc;
+                .fs(14);
+                 .w(256);
+                 .h(50);
+                 .lh(50);
+                  border-bottom: 1px solid #ddd;
+               input{
+                   .w(180);
+               }
+               span{
+                   color: #ff5a60;
+               }
+            }
+           
+            .submit{
+                .margin-top(55);
+                .margin-bottom(45);
+                color: #fff;
+                background: #ff5a60;
+                .border-radius(10);
+                .h(40);
+                .lh(40);
+            }
+                
+        }
+        .agree{
+            .margin-top(20);
+            .fs(14);
+            i{
+                color: #ff5a60;
+                .margin-right(8);
+            }
+            span{
+                .margin-right(20);
+            }
+            a{
+                text-decoration: underline;
+                color: #666;
+            }
+        }
+    }
+}

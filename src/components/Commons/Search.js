@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 
 import {withRouter} from 'react-router-dom';
-import { SearchBar, Button, WhiteSpace, WingBlank} from 'antd-mobile';
+import { SearchBar} from 'antd-mobile';
 
 
 class Search extends Component{

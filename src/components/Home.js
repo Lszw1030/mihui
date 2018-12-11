@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
-import axios from 'axios';
-import {Route,NavLink,Redirect,Switch,withRouter} from 'react-router-dom';
+
+import {withRouter} from 'react-router-dom';
 
 
 import {Banner} from "./Home/Banner"
@@ -12,11 +12,12 @@ import {Content} from "./Home/Content"
 import {Lists} from "./Commons/Lists"
 import {Search} from './Commons/Search'
 
-import {List} from 'antd-mobile';
-const Item = List.Item;
-const Brief = Item.Brief;
+
+
+
 
 class Home extends Component{
+	scrollHandler = this.handleScroll.bind(this);
 	constructor(){
 		super();
 		this.state = {
@@ -40,14 +41,40 @@ class Home extends Component{
 				pageNub:5,
 				pageSize:20
 			},
-			hurl:"/apis/home/api/getLikeList"
+			hurl:"/apis/home/api/getLikeList",
+			bannerurl:'/apiy/api/wxapp',
+			bannerdata:{}
 		}
 	}
+	scrollHandler = this.handleScroll.bind(this);
+	
+    componentDidMount() {
+    	//console.log(this.scrollHandler)
+      window.addEventListener('scroll', this.scrollHandler);
+    }
+     _handleScroll(scrollTop,content) {
+         //console.log(scrollTop)
+         //console.log(content)
+         //滚动条距离页面的高度
+        }
+    handleScroll(event) {
+    	let content=document.querySelector('.content');
+    	//console.log(content)
+        let scrollTop = event.srcElement.body.scrollTop;
+        this._handleScroll(scrollTop,content);
+    }
+
 	render(){
+		
 		return <div>
 				<div className="content">
+					<div id="search">
 						<Search></Search>
-						<Banner></Banner>
+					</div>
+					<div id="banner">
+						<Banner url={this.state.bannerurl} data={this.state.bannerdata}></Banner>
+					</div>	
+					<div id="main">
 						<HomeNav></HomeNav>
 						<div className="zhengping">
 							<img src={require('../images/zhengping.jpg')} 
@@ -59,6 +86,7 @@ class Home extends Component{
 						<Content data={this.state.data3}></Content>
 						<Content data={this.state.data4}></Content>
 						<Lists data={this.state.listdata} url={this.state.hurl}></Lists>
+					</div>
 				</div>
 				
 		</div>

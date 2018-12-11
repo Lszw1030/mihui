@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import axios from 'axios';
 
-import {Switch,withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
 
 class Content extends Component{
@@ -31,11 +31,15 @@ class Content extends Component{
 		})
 			
 	}
-	goInfomation(val){
+	goInfomation(goods){
 		let {history} = this.props;
-		window.localStorage.setItem("name",val.name);
-		window.localStorage.setItem("productId",val.id);
-		history.push('/information');
+		window.localStorage.setItem("name",goods.name);
+		window.localStorage.setItem("productId",goods.id);
+		history.push({
+			pathname:'/information/'+goods.id,
+			state:goods
+		});
+		
 
 	}
 	render(){
@@ -45,18 +49,17 @@ class Content extends Component{
 					<img src={require('../../images/homelisttop.jpg')} style={{width:'100%'}} />
 					<div className="ovaotu">
 						<ul className="contlist">
-						{this.state.list.map(val=>(
+						{this.state.list.map(goods=>(
 							<li
-							key={val.id}
-							onClick={this.goInfomation.bind(this,val)}
+							key={goods.id}
+							onClick={this.goInfomation.bind(this,goods)}
 							>
-							
-								<span className="minti">{val.sellerInfo.name}</span>
-								<img src={val.pic}/>
-								<h2>{val.name}</h2>
+								<span className="minti">{goods.sellerInfo.name}</span>
+								<img src={goods.pic}/>
+								<h2>{goods.name}</h2>
 								<p>
-									<span>{(val.price*0.8).toFixed(2)}</span>
-									<span>{val.price}</span>
+									<span>{(goods.price*0.8).toFixed(2)}</span>
+									<span>{goods.price}</span>
 								</p>
 						
 							</li>
@@ -68,6 +71,8 @@ class Content extends Component{
 		</div>
 	}
 }
+
+
 Content = withRouter(Content);
 
 export {Content};
