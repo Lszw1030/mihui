@@ -23,7 +23,6 @@ class Classify extends Component{
 	}
 	componentWillMount(){
 		let data=JSON.parse(localStorage.getItem("data"))
-	
 		this.setState({
 	       		 listdata:data,
 	    });

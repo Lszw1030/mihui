@@ -28,10 +28,16 @@ class My extends Component{
 		//console.log(this.props)
 		this.props.history.push('/login');
 	}
+	loginOut(){
+		
+		window.localStorage.removeItem('user');
+	}
 	render(){
 		return <div>
 				<div className="my">
 				 	<input type="button" onClick={this.goLogin.bind(this)} value="login"/>
+				 	
+				 	<input type="button" onClick={this.loginOut.bind(this)} value="out"/>
 				</div>
 		</div>
 	}

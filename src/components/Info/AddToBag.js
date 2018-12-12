@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-
+import axios from 'axios';
 
 import {withRouter} from 'react-router-dom';
 import { Button} from 'antd-mobile';
@@ -8,7 +8,13 @@ import { Button} from 'antd-mobile';
 function AddToBag (props){
 
 	let {state:goods} = props.location;
-	//console.log(goods)
+	//name,img,type,price,dest,num
+	let img = goods.pic;
+	let name = goods.name;
+	let id = goods.id;
+	let price = ((goods.price)*0.8).toFixed(2);
+
+	console.log(goods)
 	let goBack=()=>{
 		let atb=document.querySelector('.addToBag');
 		atb.style.display="none";
@@ -41,6 +47,25 @@ function AddToBag (props){
 			numup.style.color="#ff5b61";
 			numdown.style.color="#ff5b61";
 		}
+		
+	}
+	let addGood=()=>{
+		let data={
+			img:img,
+			name:name,
+			id:id,
+			price:price,
+			num:goodnum.value
+		}
+		console.log(data)
+		let path='http://127.0.0.1:3003';
+		axios.post(path+'/api/goods/addgood',data)
+		.then((res)=>{
+			console.log(res)
+		})
+		.catch((err)=>{
+			console.log(err)
+		})
 		
 	}
 		return <div>
@@ -86,7 +111,7 @@ function AddToBag (props){
 							</div>
 						</div>
 						<div id="submit">
-							<Button type="warning">确定</Button>
+							<Button type="warning" onClick={addGood}>确定</Button>
 						</div>
 					</div>
 				</div>

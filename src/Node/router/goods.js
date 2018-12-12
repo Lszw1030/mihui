@@ -44,21 +44,34 @@ Router.post('/goodslist', (req, res) => {
 
 //添加商品信息
 Router.post('/addgood', (req, res) => {
-	let {name,img,type,price,dest,num}=req.body;
+	//console.log(req.body)
+	let {name,img,price,num,id}=req.body;
 
-	goodModel.insertMany({name,img,type,price,dest,num})
+	goodModel.insertMany({name,img,price,num,id})
 	.then((data) => {
 		res.send(utli.sendData(0, '添加成功', data))
-		console.log(res.data)
+		//console.log(res.data)
 	})
 	.catch((err)=>{
 		console.log(err)
 		res.send(utli.sendData(-1, '添加失败', null))
 	})
 })
+
+//购物车查询
+Router.post('/cartlist', (req, res) => {
+	goodModel.find()
+	.then((data) => {
+		
+		res.send(utli.sendData(0, '请求成功', data))
+	})
+	.catch((err)=>{
+		res.send(utli.sendData(-1, '请求错误', null))
+	})
+})
 //修改数据
 Router.post('/updategood', (req, res) => {
-	let {name,img,type,price,dest,num,id}=req.body;
+	let {name,img,price,num,id}=req.body;
 	
 	goodModel.update({_id:id},{name:name,img:img,type:type,price:price,dest:dest,num:num})
 	.then((data) => {

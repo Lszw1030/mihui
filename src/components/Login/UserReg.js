@@ -52,7 +52,7 @@ class UserReg extends Component{
 			.catch((err)=>{
 				console.log(err)
 			})
-//			window.localStorage.setItem('user',reginp.value);
+//			
 //			history.push('/home');
 		}
 		else{
